@@ -21,7 +21,7 @@ class InvoiceController extends Controller
     {
         $invoices = $this->invoiceRepository->getAllInvoices();
         // return view('invoices.index', compact('invoices'));
-        return Inertia::render('invoices/index', ['invoices'=>$invoices]);
+        return Inertia::render('invoices/Dashboard', ['invoices'=>$invoices]);
     }
 
     public function create()
