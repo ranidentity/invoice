@@ -9,13 +9,22 @@ use App\Interfaces\OrderItemRepositoryInterface;
 use App\Repositories\OrderItemRepository;
 use Illuminate\Support\Facades\Log;
 
-class AppServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+
     public function register(): void
     {
+        // Bind Invoice Repository
+        $this->app->bind(
+            InvoiceRepositoryInterface::class,
+            InvoiceRepository::class
+        );
+
+        // Bind Order Item Repository
+        $this->app->bind(
+            OrderItemRepositoryInterface::class,
+            OrderItemRepository::class
+        );
     }
 
     /**
@@ -23,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        
     }
 }
